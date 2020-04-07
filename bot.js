@@ -21,6 +21,18 @@ const log = message => {
     console.log(`${message}`);
 };
 
+const express = require('express');
+const app = express();
+const http = require('http');
+    app.get("/", (request, response) => {
+    console.log(` az önce pinglenmedi. Sonra ponglanmadı... ya da başka bir şeyler olmadı.`);
+    response.sendStatus(200);
+    });
+    app.listen(process.env.PORT);
+    setInterval(() => {
+    http.get(`https://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+    }, 280000);
+
 ////////////////////////////
 client.ayar = db
 const useful = require('./x.js');
